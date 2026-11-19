@@ -1,4 +1,3 @@
-# type: ignore
 import streamlit as st
 from modelo import modelo, criar_mensagens_iniciais
 from langchain_core.messages import HumanMessage
@@ -21,7 +20,7 @@ prompt = st.chat_input("Digite sua Mensagem ...")
 
 if prompt:
     st.session_state["mensagens"].append(HumanMessage(prompt))
-    with st.spinner("Luan está digitando...")
+    with st.spinner("Luan está digitando..."):
         resposta = modelo.invoke(st.session_state["mensagens"])
     st.session_state["mensagens"].append(resposta)
     st.rerun()
